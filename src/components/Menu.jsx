@@ -1,7 +1,6 @@
 import React from "react";
 import addBtn from "../assets/images/add-btn.png";
 
-
 export default function Menu(props) {
   const {
     handleAddBtnClicked,
@@ -11,6 +10,7 @@ export default function Menu(props) {
     handleRemoveBtn,
     total,
     paymentSubmitted,
+    btnClicked
   } = props;
 
   const renderFoodItems = () => {
@@ -29,15 +29,20 @@ export default function Menu(props) {
           onClick={() => handleAddBtnClicked(item.id)}
         >
           <div className="menu-item">
-            <p className="menu-item-img">{item.emoji}</p>
             <div className="menu-item-details">
-              <p className="menu-item-name">{item.name}</p>
-              <p className="menu-item-ingredients">{getIngredients}</p>
-              <p className="menu-item-price">${item.price}</p>
+              <p className="menu-item-img">{item.emoji}</p>
+              <div className="menu-item-info">
+                <p className="menu-item-name">{item.name}</p>
+                <p className="menu-item-ingredients">{getIngredients}</p>
+                <p className="menu-item-price">${item.price}</p>
+              </div>
             </div>
+            <img className="menu-item-add-btn" src={addBtn} />
           </div>
 
-          <img className="menu-item-add-btn" src={addBtn} />
+          <div className="divider-line-container">
+            <div className="menu-item-divider-line"></div>
+          </div>
         </div>
       );
     });
@@ -80,7 +85,9 @@ export default function Menu(props) {
   const renderOrder = () => {
     return (
       <div className="your-order-container">
-        <h3 className="your-order-text">Your Order</h3>
+        <h3 id="your-order-text" className="your-order-text">
+          <a className="your-order-anchor-tag" href="#yourorder">Your Order</a>
+        </h3>
         {renderOrderDetails()}
         {renderTotalPrice()}
         <button onClick={handleCompleteOrderBtn} className="complete-order-btn">
@@ -90,6 +97,15 @@ export default function Menu(props) {
     );
   };
 
+  React.useEffect(() => {
+    if(btnClicked.addBtnClicked){
+      const yourOrderAnchor = document.getElementById('your-order-text')
+
+      if(yourOrderAnchor){
+        yourOrderAnchor.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [btnClicked.addBtnClicked])
 
   return (
     <div className="menu-container">

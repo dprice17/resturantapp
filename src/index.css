@@ -6,13 +6,15 @@ body {
   margin: 0;
 }
 
-header {
-  width: 100%;
-}
-
 .header-img {
   width: 100%;
   object-fit: contain;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .container {
@@ -20,43 +22,41 @@ header {
   margin: 0 auto;
   flex-direction: column;
   align-items: center;
-  min-width: 400px;
-  max-width: 600px;
-  height: 100vh;
+  width: 375px;
+  height: 812px;
+  overflow: auto;
+  border: 5px solid black;
+  border-radius: 40px;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
 }
 
 .menu-container {
   width: 100%;
-  padding: 0 2em 0 2em;
-  height: 100%;
+  padding: 0 0.5em 0 0.5em;
 }
 
-.menu-item-container {
-  transition: all 0.3s ease;
-  margin: 0 auto;
+.menu-item-details {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.menu-item-container:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+.menu-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-}
-
-.menu-item-img {
-  display: flex;
-  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .menu-item-img {
   font-size: 70px;
-  margin-right: 0.5em;
 }
 
 .menu-item-info {
@@ -83,10 +83,19 @@ header {
   margin-top: 0.3em;
 }
 
+.menu-item-divider-line {
+  width: 100%;
+  border: 0.5px solid #d2d2d2;
+}
+
 /***** your order area *******/
 
 .order-confirmation-container {
-  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1em 0 1em;
+  height: 100%;
 }
 
 .your-order-container {
@@ -101,13 +110,13 @@ header {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0;
 }
 
 .your-order-text,
 .your-order-item-name {
   font-size: 1.5rem;
 }
+
 
 .your-order-item-price {
   font-weight: 700;
@@ -117,19 +126,16 @@ header {
 .complete-order-btn {
   width: 100%;
   height: 60px;
+  margin-bottom: 1em;
 }
 
 button {
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   cursor: pointer;
   background-color: #16db99;
   color: #ffffff;
   font-weight: 700;
-}
-
-button:hover {
-  background-color: #ef2466;
 }
 
 .remove-btn {
@@ -140,18 +146,13 @@ button:hover {
 }
 
 .remove-btn:hover {
-  color: red;
   cursor: pointer;
 }
 
-.payment-confirmation-container {
+.payment-confirmation {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-}
-
-.payment-confirmation {
   margin-top: 2em;
   text-align: center;
   background-color: #ecfdf5;
@@ -159,16 +160,17 @@ button:hover {
   height: 75px;
   width: 100%;
   font-size: 1.3rem;
-  border-radius: 10px;
+  border-radius: 20px;
+}
+
+.payment-confirmation-message {
+  width: 80%;
 }
 
 .total-price {
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  justify-content: center;
 }
 
 .total-price-text {
@@ -191,9 +193,7 @@ button:hover {
 
 .total {
   display: flex;
-  width: 100%;
   justify-content: space-between;
-  align-items: center;
 }
 
 /**** payment screen component *****/
@@ -203,29 +203,22 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 524.24px;
+  height: 100%;
 }
 
 .payment-screen-input-fields {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 2em 0 2em;
+  padding: 0 0.5em 0 0.5em;
 }
 
 input {
-  transition: all 0.3s ease;
   width: 100%;
   height: 71.3px;
   border: 1.3px solid #757575;
+  border-radius: 20px;
   margin-bottom: 1em;
   color: #757575;
   padding: 0 1em 0 1em;
   font-size: 1.2rem;
-}
-
-input:hover {
-  transform: scale(1.1);
 }
 
 .payment-screen-header-text {
@@ -250,5 +243,3 @@ input:hover {
   font-size: 2rem;
   margin-bottom: 0;
 }
-
-

@@ -68,7 +68,11 @@ export default function useOrderManagement({ menuItems, setBtnClicked }) {
   };
 
   const handleRemoveBtn = (index) => {
-    removeOrderItem(index);
+    setOrderInfo((prevOrderInfo) => {
+      const newOrder = [...prevOrderInfo.order];
+      newOrder.splice(index, 1);
+      return { ...prevOrderInfo, order: newOrder };
+    });
   };
 
   return {

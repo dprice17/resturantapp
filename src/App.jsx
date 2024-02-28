@@ -53,34 +53,35 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header headerImage={headerImage} />
+          <Header headerImage={headerImage} />
 
-      {!btnClicked.completeBtnClicked && !paymentSubmitted && (
-        <Menu
-          handleAddBtnClicked={handleAddBtnClicked}
-          menuItems={menuItems}
-          handleRemoveBtn={handleRemoveBtn}
-          handleCompleteOrderBtn={handleCompleteOrderBtn}
-          order={order}
-          total={total}
-          paymentSubmitted={paymentSubmitted}
-        />
-      )}
+          {!btnClicked.completeBtnClicked && !paymentSubmitted && (
+            <Menu
+              handleAddBtnClicked={handleAddBtnClicked}
+              btnClicked={btnClicked}
+              menuItems={menuItems}
+              handleRemoveBtn={handleRemoveBtn}
+              handleCompleteOrderBtn={handleCompleteOrderBtn}
+              order={order}
+              total={total}
+              paymentSubmitted={paymentSubmitted}
+            />
+          )}
 
-      {btnClicked.completeBtnClicked && !paymentSubmitted && (
-        <PaymentScreen
-          handleOnSubmit={handleOnSubmit}
-          btnClicked={btnClicked}
-        />
-      )}
+          {btnClicked.completeBtnClicked && !paymentSubmitted && (
+            <PaymentScreen
+              handleOnSubmit={handleOnSubmit}
+              btnClicked={btnClicked}
+            />
+          )}
 
-      {paymentSubmitted && (
-        <ConfirmationPage
-          order={order}
-          customerName={customerName}
-          total={total}
-        />
-      )}
-    </div>
+          {paymentSubmitted && (
+            <ConfirmationPage
+              order={order}
+              customerName={customerName}
+              total={total}
+            />
+          )}
+        </div>
   );
 }

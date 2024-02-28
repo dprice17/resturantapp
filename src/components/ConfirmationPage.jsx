@@ -37,7 +37,7 @@ export default function ConfirmationPage(props) {
         </div>
         <div className="payment-confirmation-container">
           <div className="payment-confirmation">
-            <p>Thanks {customerName}, your order is on its way</p>
+            <p className="payment-confirmation-message">Thanks {customerName}, your order is on its way</p>
           </div>
         </div>
       </div>

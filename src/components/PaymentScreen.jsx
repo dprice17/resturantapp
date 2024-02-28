@@ -21,12 +21,14 @@ export default function PaymentScreen(props) {
               placeholder="Enter card number"
               required
               name="cardNumber"
+              min="16"
             />
             <input
               type="number"
               placeholder="Enter CVV"
               required
               name="cvvNumber"
+              min="3"
             />
             <button className="payment-screen-pay-btn" type="submit">
               Pay
